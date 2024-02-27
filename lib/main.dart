@@ -1,18 +1,8 @@
 import 'package:flutter/material.dart';
-import 'nav_bar.dart';
+import 'default_nav.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Kazi Nasi',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyNavBar(),
-    );
-  }
+void main() {
+  return runApp(MaterialApp(
+    home: CustomNavBar(),
+  ));
 }
