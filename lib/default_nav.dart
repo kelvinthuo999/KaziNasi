@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomNavBar extends StatelessWidget {
+class NewNavBar extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
