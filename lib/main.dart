@@ -1,159 +1,179 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'KaziNasi',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: LandingPage(),
-    );
-  }
-}
 
 class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         title: Text('KaziNasi'),
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () {
-            // Add menu functionality here
-          },
-        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () {
+              // Add your menu icon functionality here
+            },
+          ),
+        ],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                'Find Work Near You',
-                style: TextStyle(fontSize: 24.0, color: Colors.blue),
+      body: ListView(
+        children: [
+          // First Column
+          Container(
+            height: 300, // Adjust the height as needed
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('images/homepage.jpg'),
+                fit: BoxFit.cover,
               ),
-              SizedBox(height: 20.0),
-              Text(
-                'Browse available jobs and start working today!',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16.0),
-              ),
-              SizedBox(height: 40.0),
-              Container(
-                height: 200.0,
-                child: CarouselSlider(
-                  items: [
-                    // Example card 1
-                    Container(
-                      margin: EdgeInsets.all(5.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: Colors.blue,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          CircleAvatar(
-                            radius: 50.0,
-                            backgroundImage: AssetImage('assets/images/client1.jpg'),
-                          ),
-                          SizedBox(height: 10.0),
-                          Text(
-                            'John Doe',
-                            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(height: 10.0),
-                          Text(
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 16.0),
-                          ),
-                        ],
-                      ),
-                    ),
-                    // Example card 2
-                    Container(
-                      margin: EdgeInsets.all(5.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: Colors.blue,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          CircleAvatar(
-                            radius: 50.0,
-                            backgroundImage: AssetImage('assets/images/client2.jpg'),
-                          ),
-                          SizedBox(height: 10.0),
-                          Text(
-                            'Jane Smith',
-                            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(height: 10.0),
-                          Text(
-                            'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 16.0),
-                          ),
-                        ],
-                      ),
-                    ),
-                    // Add more cards as needed
-                  ],
-                  options: CarouselOptions(
-                    height: 200.0,
-                    enlargeCenterPage: true,
-                    autoPlay: false,
-                    enableInfiniteScroll: true,
-                    viewportFraction: 0.8,
-                    scrollPhysics: AlwaysScrollableScrollPhysics(),
+            ),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(
+                    'Welcome to KaziNasi!',
+                    style: TextStyle(fontSize: 24, color: Colors.white),
                   ),
                 ),
-              ),
-              SizedBox(height: 40.0),
-              Text(
-                'How it Works',
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.blue),
-              ),
-              SizedBox(height: 10.0),
-              Text(
-                '1. Sign up and create your profile',
-                style: TextStyle(fontSize: 16.0),
-              ),
-              Text(
-                '2. Browse available jobs near you',
-                style: TextStyle(fontSize: 16.0),
-              ),
-              Text(
-                '3. Apply for jobs and start working!',
-                style: TextStyle(fontSize: 16.0),
-              ),
-              SizedBox(height: 40.0),
-              ElevatedButton(
-                onPressed: () {
-                  // Add button functionality here
-                },
-                child: Text('Get Started'),
-              ),
-              SizedBox(height: 20.0),
-              Text(
-                'Already have an account? Sign in',
-                style: TextStyle(fontSize: 16.0),
-              ),
-            ],
+                SizedBox(height: 100), // Empty space for background image
+              ],
+            ),
           ),
+          // Second Column
+          Container(
+            height: 200, // Adjust the height as needed
+            padding: EdgeInsets.all(16.0),
+            color: Colors.grey[200],
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Our Services',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 10),
+                Wrap(
+                  spacing: 20.0,
+                  runSpacing: 20.0,
+                  children: [
+                    _ServiceCard(
+                      title: 'Jobs',
+                      message: 'Find instant jobs near you.',
+                    ),
+                    _ServiceCard(
+                      title: 'Connectivity',
+                      message: 'Connect with potential clients.',
+                    ),
+                    _ServiceCard(
+                      title: 'Efficiency',
+                      message: 'Efficiently manage your work schedule.',
+                    ),
+                    _ServiceCard(
+                      title: 'Quality',
+                      message: 'Ensure quality work and customer satisfaction.',
+                    ),
+                    // Add more cards here
+                  ],
+                ),
+              ],
+            ),
+          ),
+          // Third Column
+          Container(
+            height: 400, // Adjust the height as needed
+            padding: EdgeInsets.all(16.0),
+            color: Colors.grey[300],
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  _CustomerCard(
+                    imagePath: 'images/homepage.jpg',
+                    message: 'KaziNasi helped me find my dream job!',
+                  ),
+                  _CustomerCard(
+                    imagePath: 'images/homepage.jpg',
+                    message: 'I love how KaziNasi connects me with clients.',
+                  ),
+                  _CustomerCard(
+                    imagePath: 'images/homepage.jpg',
+                    message: 'Thanks to KaziNasi, I manage my work efficiently.',
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ServiceCard extends StatelessWidget {
+  final String title;
+  final String message;
+
+  _ServiceCard({required this.title, required this.message});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 5),
+            Text(
+              message,
+              style: TextStyle(fontSize: 14),
+            ),
+          ],
         ),
       ),
     );
   }
+}
+
+class _CustomerCard extends StatelessWidget {
+  final String imagePath;
+  final String message;
+
+  _CustomerCard({required this.imagePath, required this.message});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onHorizontalDragUpdate: (details) {
+        // Add scroll functionality here
+      },
+      child: Card(
+        child: Column(
+          children: [
+            Image.asset(
+              imagePath,
+              height: 150,
+              width: 150,
+              fit: BoxFit.cover,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(message),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: LandingPage(),
+  ));
 }
