@@ -4,7 +4,6 @@ import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LandingPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -302,31 +301,7 @@ class LandingPage extends StatelessWidget {
             ],
           ),
         ),
-        Container(
-          height: 400,
-          child: Card(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SizedBox(height: 15),
-                CircleAvatar(
-                  radius: 120,
-                  backgroundImage: AssetImage('images/homepage.jpg'),
-                ),
-                SizedBox(height: 20),
-                Text('Kelvin Ngigi',
-                style: GoogleFonts.roboto(fontSize: 18, fontWeight: FontWeight.bold)),
-                SizedBox(width: 20),
-                Text('Software Engineer'),
-                SizedBox(height: 20),
-                Text(
-                  'KaziNasi has helped me get a job easily and quickly',
-                  textAlign: TextAlign.center,
-                ),
-              ],
-            ),
-          ),
-        ),
+        Expanded(child: Container(child: Text('hello'),)),
       ],
     ));
   }
