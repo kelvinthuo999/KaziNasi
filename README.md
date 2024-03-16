@@ -32,9 +32,9 @@ Finding reliable and available help for short-term tasks can be challenging. Kaz
 
 - **Frontend**: The frontend of KaziNasi is built using Flutter, a cross-platform framework for building native interfaces for iOS, Android, and the web.
 - **Backend**: The backend is powered by Node.js, a JavaScript runtime built on Chrome's V8 JavaScript engine.
-- **Database**: Firestore, a flexible, scalable database for mobile, web, and server development, is used to store user profiles, job listings, messages, and reviews.
+- **Database**: MySQL is used as the database to store user profiles, job listings, messages, and reviews.
+- **Web Server**: Nginx is used as the web server to serve the Flutter web app and handle incoming requests.
 - **Authentication**: Firebase Authentication is used to manage user authentication and authorization, ensuring that only authenticated users can access the platform.
-
 ## Installation
 
 To run KaziNasi locally, follow these steps:
@@ -42,13 +42,13 @@ To run KaziNasi locally, follow these steps:
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/your-username/kazinasi.git
+   git clone https://github.com/kelvinthuo999/KaziNasi
    ```
 
 2. Navigate to the project directory:
 
    ```sh
-   cd kazinasi
+   cd KaziNasi
    ```
 
 3. Install dependencies:
@@ -77,10 +77,9 @@ Once the app is running, you can use it to:
 - Rate and review other users based on your experience.
 
 ## Deployment
-
 To deploy KaziNasi to a live server, follow these steps:
 
-1. Set up a server: You'll need a server running Node.js and a database (e.g., Firestore) to deploy the backend of KaziNasi.
+1. Set up a server: You'll need a server running Nginx, Node.js, and MySQL to deploy the backend of KaziNasi.
 2. Deploy the frontend: Use a web hosting service (e.g., Firebase Hosting, Netlify) to deploy the Flutter web app frontend.
 3. Configure the backend: Update the frontend configuration (e.g., API endpoints) to point to your deployed backend.
 4. Access the app: Once deployed, the KaziNasi web app will be accessible via any browser.
